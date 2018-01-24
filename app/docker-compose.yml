@@ -1,11 +1,6 @@
 version: '3.2'
 
 services:
-  
-  signup-db:
-    image: dockersamples/mta-dev-signup-db:v1
-    networks:
-      - app-net
 
   message-queue:
     image: nats:1.0.4-nanoserver
@@ -15,7 +10,6 @@ services:
   signup-app:
     image: dockersamples/mta-dev-signup-app:v4
     depends_on:
-      - signup-db
       - message-queue
       - signup-homepage
     networks:
@@ -24,7 +18,6 @@ services:
   signup-save-handler:
     image: dockersamples/mta-dev-signup-save-handler:v1
     depends_on:
-      - signup-db
       - message-queue
     networks:
       - app-net
@@ -53,8 +46,3 @@ services:
     image: dockersamples/mta-dev-signup-homepage:v1
     networks:
       - app-net
-
-networks:
-  app-net:
-    external:
-      name: nat
