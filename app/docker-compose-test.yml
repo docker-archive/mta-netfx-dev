@@ -2,6 +2,23 @@ version: '3.2'
 
 services:
   
+  signup-db:
+    image: dockersamples/mta-dev-signup-db:v1
+    networks:
+      - app-net
+  
   signup-app:
+    depends_on:
+      - signup-db
+      - message-queue
     ports:
       - 80
+
+  signup-save-handler:
+    depends_on:
+      - signup-db
+
+networks:
+  app-net:
+    external:
+      name: nat
