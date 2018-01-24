@@ -3,6 +3,7 @@ version: '3.2'
 services:
   
   signup-db:
+    image: dockersamples/mta-dev-signup-db:v1
     build:
       context: ../
       dockerfile: ./docker/db/Dockerfile
