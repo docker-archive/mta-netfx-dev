@@ -17,7 +17,9 @@ ENV APP_ROOT="C:\web-app" `
     DB_CONNECTION_STRING_PATH=""
 
 WORKDIR $APP_ROOT
-RUN Remove-Website -Name 'Default Web Site'; `
+RUN Import-Module WebAdministration; `
+    Set-ItemProperty 'IIS:\AppPools\DefaultAppPool' -Name processModel.identityType -Value LocalSystem; `
+    Remove-Website -Name 'Default Web Site'; `
     New-Website -Name 'web-app' -Port 80 -PhysicalPath $env:APP_ROOT
 
 COPY .\docker\web\start.ps1 .
