@@ -13,18 +13,17 @@ RUN msbuild SignUp.Web.csproj /p:OutputPath=c:\out /p:DeployOnBuild=true
 FROM microsoft/aspnet:4.7.1-windowsservercore-10.0.14393.1884
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
-ENV APP_ROOT="C:\\web-app" `
+ENV APP_ROOT="C:\web-app" `
     MESSAGE_QUEUE_URL="nats://message-queue:4222" `
-    DB_CONNECTION_STRING_PATH=""`
-    APP_SETTINGS_PATH=""
+    DB_CONNECTION_STRING_PATH=""
 
 WORKDIR $APP_ROOT
 RUN Import-Module WebAdministration; `
-    Set-ItemProperty 'DefaultAppPool' -Name processModel.identityType -Value LocalSystem; `
+    Set-ItemProperty 'IIS:\AppPools\DefaultAppPool' -Name processModel.identityType -Value LocalSystem; `
     Remove-Website -Name 'Default Web Site'; `
-    New-Website -Name 'web-app' -Port 80 -PhysicalPath $env:$APP_ROOT
+    New-Website -Name 'web-app' -Port 80 -PhysicalPath $env:APP_ROOT
 
-COPY .\docker\web\v3\start.ps1 .
+COPY .\docker\web\start.ps1 .
 ENTRYPOINT ["powershell", ".\\start.ps1"]
 
 COPY --from=builder C:\out\_PublishedWebsites\SignUp.Web .

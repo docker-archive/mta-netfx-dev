@@ -6,7 +6,6 @@ Write-Output '*** Debug info'
 Write-Output '*** Pulling build images'
 
 & docker $config image pull microsoft/dotnet-framework-build:4.7.1-windowsservercore-ltsc2016
-& docker $config image pull dockersamples/mta-dev-web-builder:3.5 
 & docker $config image pull dockersamples/mta-dev-web-builder:4.7.1
 
 Write-Output '*** Building test runner'

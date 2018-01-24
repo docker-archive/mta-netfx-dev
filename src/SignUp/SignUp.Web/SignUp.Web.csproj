@@ -88,11 +88,7 @@
     <Content Include="SignUp.aspx" />
     <Content Include="fonts\geomanist\hinted-Geomanist-Book.woff2" />
     <Content Include="connectionStrings.config" />
-    <Content Include="build.ps1" />
     <Content Include="log4net.config" />
-    <Content Include="appSettings.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />

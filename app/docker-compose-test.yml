@@ -1,0 +1,7 @@
+version: '3.2'
+
+services:
+  
+    signup-app:
+    ports:
+      - 80

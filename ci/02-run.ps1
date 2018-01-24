@@ -1,6 +1,9 @@
 Write-Output '*** Running App'
 
-& docker-compose $config -f .\app\part-3\docker-compose.yml up -d
+& docker-compose $config `
+    -f .\app\docker-compose.yml `
+    -f .\app\docker-compose-test.yml `
+    up -d
 
 Write-Output '*** Verifying running containers'
 

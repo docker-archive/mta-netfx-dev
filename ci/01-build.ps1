@@ -1,6 +1,6 @@
 Write-Output '*** Building App'
 
 & docker-compose $config `
-    -f .\app\part-3\docker-compose.yml `
-    -f .\app\part-3\docker-compose-build.yml `
+    -f .\app\docker-compose.yml `
+    -f .\app\docker-compose-build.yml `
     build
