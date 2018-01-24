@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.3'
 
 services:
   
@@ -7,47 +7,10 @@ services:
     networks:
       - app-net
 
-  message-queue:
-    image: nats:1.0.4-nanoserver
-    networks:
-      - app-net
-
-  elasticsearch:
-    image: dockersamples/elasticsearch:5.6.0-nanoserver-sac2016
-    networks:
-      - app-net
-
-  kibana:
-    image: dockersamples/kibana:5.6.0-windowsservercore-ltsc2016
-    depends_on:
-      - elasticsearch
-    networks:
-      - app-net
-
-  signup-homepage:
-    image: dockersamples/mta-dev-signup-homepage:v1
-    networks:
-      - app-net
-
   signup-app:
-    image: dockersamples/mta-dev-signup-app:v3
+    image: dockersamples/mta-dev-signup-app:v1
     ports:
-      - 80
-    depends_on:
-      - signup-db
-      - signup-homepage
-    networks:
-      - app-net
-
-  signup-save-handler:
-    image: dockersamples/mta-dev-signup-save-handler:v1
-    depends_on:
-      - signup-db
-    networks:
-      - app-net
-
-  signup-index-handler:
-    image: dockersamples/mta-dev-signup-index-handler:v1
+      - "80:80"
     depends_on:
       - signup-db
     networks:
