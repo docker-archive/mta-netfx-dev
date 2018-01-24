@@ -16,3 +16,8 @@ services:
     build:
       context: ../
       dockerfile: ./docker/save-handler/Dockerfile
+
+  signup-index-handler:
+    build:
+      context: ../
+      dockerfile: ./docker/index-handler/Dockerfile
