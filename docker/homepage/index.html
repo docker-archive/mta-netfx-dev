@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="Content/bootstrap.css" />
+  <link rel="stylesheet" href="Content/Site.css" />
+</head>
+
+<body>
+
+  <div id="app">
+    <v-app>
+      <v-container grid-list-lg fluid>
+        <v-layout>
+
+          <v-flex xs4>
+            <!-- col 1 -->
+
+            <v-card>
+              <v-card-title primary-title>
+                <div>
+                  <h1>Image2Docker</h1>
+                  <h2>For Windows</h2>
+                </div>
+              </v-card-title>
+              <v-card-actions>
+                <v-btn flat class="orange--text" href="https://github.com/docker/communitytools-image2docker-win">Learn More</v-btn>
+              </v-card-actions>
+            </v-card>
+<br/>
+            <v-card>
+              <v-card-title primary-title>
+                <div>
+                  <h1>Image2Docker</h1>
+                  <h2>For Linux</h2>
+                </div>
+              </v-card-title>
+              <v-card-actions>
+                <v-btn flat class="orange--text" href="https://github.com/docker/communitytools-image2docker-linux">Learn More</v-btn>
+              </v-card-actions>
+            </v-card>
+            <br/>
+            <v-card>
+              <v-card-title primary-title>
+                <div>
+                  <h1>Image2Docker</h1>
+                  <h2>The Newsletter</h2>
+                </div>
+              </v-card-title>
+              <v-card-actions>
+                <v-btn flat class="orange--text" href="/SignUp.aspx">Sign Up!</v-btn>
+              </v-card-actions>
+            </v-card>
+
+          </v-flex>    
+
+        </v-layout>
+      </v-container>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+
+</html>
