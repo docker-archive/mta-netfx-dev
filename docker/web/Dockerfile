@@ -14,4 +14,4 @@ WORKDIR C:\web-app
 RUN Remove-Website -Name 'Default Web Site'; `
     New-Website -Name 'web-app' -Port 80 -PhysicalPath 'C:\web-app'
 
-COPY --from=builder C:\out\web\SignUpWeb\_PublishedWebsites\SignUp.Web C:\web-app
+COPY --from=builder C:\out\web\SignUpWeb\_PublishedWebsites\SignUp.Web .
