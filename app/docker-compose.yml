@@ -13,10 +13,11 @@ services:
       - app-net
 
   signup-app:
-    image: dockersamples/mta-dev-signup-app:v3
+    image: dockersamples/mta-dev-signup-app:v4
     depends_on:
       - signup-db
       - message-queue
+      - signup-homepage
     networks:
       - app-net
 
@@ -45,6 +46,11 @@ services:
     image: dockersamples/kibana:5.6.0-windowsservercore
     depends_on:
       - elasticsearch
+    networks:
+      - app-net
+
+  signup-homepage:
+    image: dockersamples/mta-dev-signup-homepage:v1
     networks:
       - app-net
 

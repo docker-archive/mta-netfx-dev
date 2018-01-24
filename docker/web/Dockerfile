@@ -15,7 +15,8 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 ENV APP_ROOT="C:\web-app" `
     MESSAGE_QUEUE_URL="nats://message-queue:4222" `
-    DB_CONNECTION_STRING_PATH=""
+    DB_CONNECTION_STRING_PATH="" `
+    APP_SETTINGS_PATH=""
 
 WORKDIR $APP_ROOT
 RUN Import-Module WebAdministration; `

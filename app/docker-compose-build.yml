@@ -21,3 +21,8 @@ services:
     build:
       context: ../
       dockerfile: ./docker/index-handler/Dockerfile
+
+  signup-homepage:
+    build:
+      context: ../
+      dockerfile: ./docker/homepage/Dockerfile
