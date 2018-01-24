@@ -27,3 +27,8 @@ services:
     build:
       context: ../
       dockerfile: ./docker/homepage/Dockerfile
+
+networks:
+  app-net:
+    external:
+      name: nat
