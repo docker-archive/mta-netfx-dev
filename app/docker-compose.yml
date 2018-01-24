@@ -8,7 +8,7 @@ services:
       - app-net
 
   signup-app:
-    image: dockersamples/mta-dev-signup-app:v1
+    image: dockersamples/mta-dev-signup-app:v2
     ports:
       - "80:80"
     depends_on:
