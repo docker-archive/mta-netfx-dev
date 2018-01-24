@@ -47,8 +47,8 @@ services:
   kibana:
     ports:
     - mode: host
-      published: 80
-      target: 80
+      published: 5601
+      target: 5601
     deploy:
       endpoint_mode: dnsrr
       placement:
