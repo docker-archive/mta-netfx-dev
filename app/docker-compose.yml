@@ -14,8 +14,6 @@ services:
 
   signup-app:
     image: dockersamples/mta-dev-signup-app:v3
-    ports:
-      - "80:80"
     depends_on:
       - signup-db
       - message-queue
