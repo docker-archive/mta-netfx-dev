@@ -1,0 +1,80 @@
+version: '3.2'
+
+services:
+  
+  message-queue:
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+        - node.platform.os == windows
+  
+  signup-app:
+    ports:
+    - mode: host
+      published: 80
+      target: 80
+    environment:
+      DB_CONNECTION_STRING_PATH: C:\ProgramData\Docker\secrets\signup-db.connectionstring
+    secrets:
+     - source: signup-db.connectionstring
+    deploy:
+      endpoint_mode: dnsrr
+      replicas: 3
+      placement:
+        constraints:
+        - node.platform.os == windows
+  
+  signup-save-handler:
+    environment:
+      DB_CONNECTION_STRING_PATH: C:\ProgramData\Docker\secrets\signup-db.connectionstring
+    secrets:
+     - source: signup-db.connectionstring
+    deploy:
+      endpoint_mode: dnsrr
+      replicas: 4
+      placement:
+        constraints:
+        - node.platform.os == windows
+
+  elasticsearch:
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+        - node.platform.os == windows
+
+  kibana:
+    ports:
+    - mode: host
+      published: 5601
+      target: 5601
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+        - node.platform.os == windows
+  
+  signup-index-handler:
+    deploy:
+      endpoint_mode: dnsrr
+      replicas: 2
+      placement:
+        constraints:
+        - node.platform.os == windows
+  
+  signup-homepage:
+    deploy:
+      endpoint_mode: dnsrr
+      placement:
+        constraints:
+        - node.platform.os == windows
+
+
+networks:
+  app-net: {}
+  
+secrets:
+  signup-db.connectionstring:
+    external:
+      name: signup-db-v2.connectionstring

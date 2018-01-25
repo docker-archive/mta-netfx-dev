@@ -1,0 +1,34 @@
+version: '3.2'
+
+services:
+  
+  signup-db:
+    image: dockersamples/mta-dev-signup-db:v1
+    build:
+      context: ../
+      dockerfile: ./docker/db/Dockerfile
+
+  signup-app:
+    build:
+      context: ../
+      dockerfile: ./docker/web/Dockerfile
+
+  signup-save-handler:
+    build:
+      context: ../
+      dockerfile: ./docker/save-handler/Dockerfile
+
+  signup-index-handler:
+    build:
+      context: ../
+      dockerfile: ./docker/index-handler/Dockerfile
+
+  signup-homepage:
+    build:
+      context: ../
+      dockerfile: ./docker/homepage/Dockerfile
+
+networks:
+  app-net:
+    external:
+      name: nat
