@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  
+  signup-db:
+    build:
+      context: ../
+      dockerfile: ./docker/db/Dockerfile
+
+  signup-app:
+    build:
+      context: ../
+      dockerfile: ./docker/web/Dockerfile
+    
