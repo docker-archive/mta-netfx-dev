@@ -1,0 +1,42 @@
+version: '3.2'
+
+services:
+
+  message-queue:
+    image: nats:1.0.4-nanoserver
+    networks:
+      - app-net
+
+  signup-app:
+    image: dockersamples/mta-dev-signup-app:v3
+    depends_on:
+      - message-queue
+    networks:
+      - app-net
+
+  signup-save-handler:
+    image: dockersamples/mta-dev-signup-save-handler:v1
+    depends_on:
+      - message-queue
+    networks:
+      - app-net
+
+  signup-index-handler:
+    image: dockersamples/mta-dev-signup-index-handler:v1
+    depends_on:
+      - message-queue
+      - elasticsearch
+    networks:
+      - app-net
+
+  elasticsearch:
+    image: dockersamples/elasticsearch:5.6.0-nanoserver
+    networks:
+      - app-net
+
+  kibana:
+    image: dockersamples/kibana:5.6.0-windowsservercore
+    depends_on:
+      - elasticsearch
+    networks:
+      - app-net
