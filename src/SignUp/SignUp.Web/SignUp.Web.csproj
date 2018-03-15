@@ -70,7 +70,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\dockercon-2017.png" />
+    <Content Include="img\dockercon-us-2018.png" />
     <EntityDeploy Include="Model\SignUpModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SignUpModel.Designer.cs</LastGenOutput>
