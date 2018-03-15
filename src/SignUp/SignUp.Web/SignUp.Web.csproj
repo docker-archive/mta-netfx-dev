@@ -84,7 +84,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="img\dockercon-2017.png" />
+    <Content Include="img\dockercon-us-2018.png" />
     <Content Include="SignUp.aspx" />
     <Content Include="fonts\geomanist\hinted-Geomanist-Book.woff2" />
     <Content Include="connectionStrings.config" />
