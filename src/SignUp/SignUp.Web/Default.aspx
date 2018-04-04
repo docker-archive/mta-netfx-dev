@@ -5,13 +5,11 @@
         <div class="jumbotron">
             <h1>Have you tried Play with Docker?</h1>
             <p class="lead">A simple, interactive and fun playground to learn Docker.</p>
-            <!-- v2 
-                <div style="text-align: right">            
-                    <a href="https://2018.dockercon.com/" target="_blank">
-                        <img src="img/dockercon-us-2018.png"/>
-                    </a>
-                </div>
-            -->
+            <div style="text-align: right">
+                <a href="https://2018.dockercon.com/" target="_blank">
+                    <img src="img/dockercon-us-2018.png" />
+                </a>
+            </div>
         </div>
 
         <div class="row">

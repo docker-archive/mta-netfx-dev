@@ -18,9 +18,9 @@ ENV APP_ROOT="C:\web-app" `
 
 WORKDIR $APP_ROOT
 RUN Import-Module WebAdministration; `
-    Set-ItemProperty 'IIS:\AppPools\DefaultAppPool' -Name processModel.identityType -Value LocalSystem; `
+    Set-ItemProperty 'IIS:\AppPools\.NET v2.0' -Name processModel.identityType -Value LocalSystem; `
     Remove-Website -Name 'Default Web Site'; `
-    New-Website -Name 'web-app' -Port 80 -PhysicalPath $env:APP_ROOT
+    New-Website -Name 'web-app' -Port 80 -PhysicalPath $env:APP_ROOT -ApplicationPool '.NET v2.0'
 
 COPY .\docker\web\start.ps1 .
 ENTRYPOINT ["powershell", ".\\start.ps1"]
