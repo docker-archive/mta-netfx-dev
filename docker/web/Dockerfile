@@ -10,7 +10,7 @@ COPY src\SignUp C:\src
 RUN msbuild SignUp.Web.csproj /p:OutputPath=c:\out /p:DeployOnBuild=true
 
 # app image
-FROM microsoft/aspnet:4.7.1-windowsservercore-10.0.14393.1884
+FROM microsoft/aspnet:4.7.2-windowsservercore-ltsc2016
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 ENV APP_ROOT="C:\web-app" `

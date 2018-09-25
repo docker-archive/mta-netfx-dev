@@ -3,7 +3,7 @@ version: '3.2'
 services:
 
   message-queue:
-    image: nats:1.0.4-nanoserver
+    image: nats:nanoserver
     networks:
       - app-net
 
