@@ -1,13 +1,13 @@
 # escape=`
-FROM dockersamples/mta-dev-web-builder:3.5 AS builder
+FROM microsoft/dotnet-framework:4.7.2-sdk AS builder
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
-WORKDIR C:\src\SignUp.Web
-COPY src\SignUp C:\src
+WORKDIR C:\src
+COPY src\SignUp .
 RUN .\build.ps1
 
 # app image
-FROM microsoft/aspnet:3.5-windowsservercore-10.0.14393.1884
+FROM microsoft/aspnet:4.7.2-windowsservercore-ltsc2016
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 WORKDIR C:\web-app
