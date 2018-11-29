@@ -12,6 +12,6 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 WORKDIR C:\web-app
 RUN Remove-Website -Name 'Default Web Site'; `
-    New-Website -Name 'web-app' -Port 80 -PhysicalPath 'C:\web-app' -ApplicationPool '.NET v2.0'
+    New-Website -Name 'web-app' -Port 80 -PhysicalPath 'C:\web-app'
 
-COPY --from=builder C:\out\web\SignUpWeb\_PublishedWebsites\SignUp.Web .
+COPY --from=builder C:\out\_PublishedWebsites\SignUp.Web .
